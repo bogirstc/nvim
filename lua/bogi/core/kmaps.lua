@@ -59,6 +59,8 @@ vim.keymap.set(
 	{ desc = "replace word under cursor globally" }
 )
 
+vim.keymap.set("n", "<C-w>m", "<C-w>_", { desc = "maximize current window vertically" })
+
 -- Make current file executable
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { desc = "make file executable", silent = true })
 
@@ -71,10 +73,28 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+-- TermOpen autocmd
+vim.api.nvim_create_autocmd("TermOpen", {
+	desc = "set terminal options",
+	group = vim.api.nvim_create_augroup("custom-term-open", { clear = true }),
+	callback = function()
+		vim.opt_local.number = false
+		vim.opt_local.relativenumber = false
+	end,
+})
+
+-- Open a new terminal in a horizontal split at the bottom
+vim.keymap.set("n", "<C-t><C-t>", function()
+	vim.cmd.vnew()
+	vim.cmd.term()
+	vim.cmd.wincmd("J")
+	vim.api.nvim_win_set_height(0, 10)
+end, { desc = "open a new terminal" })
+
 -- Clear whitespace on save
 vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = "*",
-    command = [[%s/\s\+$//e]],
+	pattern = "*",
+	command = [[%s/\s\+$//e]],
 })
 
 -- Tab management

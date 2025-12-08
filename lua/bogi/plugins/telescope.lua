@@ -17,7 +17,7 @@ return {
 
 		telescope.setup({
 			defaults = {
-				-- path_display = { "smart" },
+				path_display = { "smart" },
 				mappings = {
 					i = {
 						["<C-k>"] = actions.move_selection_previous,
@@ -41,9 +41,9 @@ return {
 		vim.keymap.set("n", "<leader><leader>", "<cmd>Telescope buffers<CR>", { desc = "fuzzy find open buffers" })
 		vim.keymap.set("n", "<leader>pr", "<cmd>Telescope oldfiles<CR>", { desc = "fuzzy find recent files" })
 
-		vim.keymap.set("n", "<leader>pg", function()
-			builtin.grep_string()
-		end, { desc = "grep string" })
+		-- vim.keymap.set("n", "<leader>pg", function()
+		-- 	builtin.grep_string({})
+		-- end, { desc = "grep string" })
 
 		vim.keymap.set("n", "<leader>pf", function()
 			builtin.find_files({})
@@ -52,10 +52,5 @@ return {
 		vim.keymap.set("n", "<leader>pa", function()
 			builtin.find_files({ hidden = true })
 		end, { desc = "fuzzy find all files" })
-
-		vim.keymap.set("n", "<leader>pWs", function()
-			local word = vim.fn.expand("<cWORD>")
-			builtin.grep_string({ search = word })
-		end, { desc = "find connected words under cursor" })
 	end,
 }
