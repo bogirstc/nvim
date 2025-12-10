@@ -41,9 +41,11 @@ return {
 		vim.keymap.set("n", "<leader><leader>", "<cmd>Telescope buffers<CR>", { desc = "fuzzy find open buffers" })
 		vim.keymap.set("n", "<leader>pr", "<cmd>Telescope oldfiles<CR>", { desc = "fuzzy find recent files" })
 
-		-- vim.keymap.set("n", "<leader>pg", function()
-		-- 	builtin.grep_string({})
-		-- end, { desc = "grep string" })
+		vim.keymap.set("n", "<leader>pg", function()
+			builtin.grep_string({
+				search = vim.fn.input("grep for > "),
+			})
+		end, { desc = "grep string" })
 
 		vim.keymap.set("n", "<leader>pf", function()
 			builtin.find_files({})

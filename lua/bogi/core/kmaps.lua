@@ -59,8 +59,6 @@ vim.keymap.set(
 	{ desc = "replace word under cursor globally" }
 )
 
-vim.keymap.set("n", "<C-w>m", "<C-w>_", { desc = "maximize current window vertically" })
-
 -- Make current file executable
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { desc = "make file executable", silent = true })
 
@@ -91,6 +89,8 @@ vim.keymap.set("n", "<C-t><C-t>", function()
 	vim.api.nvim_win_set_height(0, 10)
 end, { desc = "open a new terminal" })
 
+vim.keymap.set("t", "<C-t><C-t>", "<C-\\><C-n>", { desc = "leave term mode", silent = true })
+
 -- Clear whitespace on save
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
@@ -105,10 +105,8 @@ vim.keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "previous tab" })
 vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "open current file in new tab" })
 
 -- Split window management
-vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "split window vertically" })
-vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "split window horizontally" })
-vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "equalize window sizes" })
-vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "close current split" })
+vim.keymap.set("n", "<C-->", "<C-w>-", { desc = "decrease split size" })
+vim.keymap.set("n", "<C-=>", "<C-w>+", { desc = "increase split size" })
 
 -- Copy current file path to clipboard
 vim.keymap.set("n", "<leader>fp", function()
