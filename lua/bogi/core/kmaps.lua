@@ -89,8 +89,9 @@ vim.keymap.set("n", "<C-t><C-t>", function()
 	vim.api.nvim_win_set_height(0, 10)
 end, { desc = "open a new terminal" })
 
-vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k", { desc = "leave term mode and go to win up", silent = true })
-vim.keymap.set("t", "<C-j>", "<C-\\><C-n>", { desc = "leave term mode", silent = true })
+-- Terminal mode exit management
+vim.keymap.set("t", "<C-w>k", "<C-\\><C-n><C-w>k", { desc = "leave term mode and go to win up", silent = true })
+vim.keymap.set("t", "<C-w>j", "<C-\\><C-n>", { desc = "leave term mode", silent = true })
 
 -- Clear whitespace on save
 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -99,11 +100,10 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 -- Tab management
-vim.keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "open new tab" })
-vim.keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "close current tab" })
-vim.keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "next tab" })
-vim.keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "previous tab" })
-vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "open current file in new tab" })
+vim.keymap.set("n", "<C-w>o", "<cmd>tabnew<CR>", { desc = "open new tab" })
+vim.keymap.set("n", "<C-]>", "<cmd>tabn<CR>", { desc = "next tab" })
+vim.keymap.set("n", "<C-[>", "<cmd>tabp<CR>", { desc = "previous tab" })
+vim.keymap.set("n", "<C-w>;", "<cmd>tabnew %<CR>", { desc = "open current file in new tab" })
 
 -- Split window management
 vim.keymap.set("n", "<C-->", "<C-w>-", { desc = "decrease split size" })
