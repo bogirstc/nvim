@@ -89,7 +89,8 @@ vim.keymap.set("n", "<C-t><C-t>", function()
 	vim.api.nvim_win_set_height(0, 10)
 end, { desc = "open a new terminal" })
 
-vim.keymap.set("t", "<C-t><C-t>", "<C-\\><C-n>", { desc = "leave term mode", silent = true })
+vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k", { desc = "leave term mode and go to win up", silent = true })
+vim.keymap.set("t", "<C-j>", "<C-\\><C-n>", { desc = "leave term mode", silent = true })
 
 -- Clear whitespace on save
 vim.api.nvim_create_autocmd("BufWritePre", {
