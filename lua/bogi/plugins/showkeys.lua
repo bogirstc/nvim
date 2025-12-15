@@ -1,7 +1,7 @@
 return {
 	{
 		"nvzone/showkeys",
-		cmd = "ShowkeysToggle",
+		event = "VeryLazy", -- Load after startup
 		opts = {
 			position = "bottom-right",
 			maxkeys = 6,
@@ -16,5 +16,9 @@ return {
 				col = 0,
 			},
 		},
+		config = function(_, opts)
+			require("showkeys").setup(opts)
+			vim.cmd("ShowkeysToggle")
+		end,
 	},
 }

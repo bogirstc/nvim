@@ -264,12 +264,12 @@ return {
 
 					return vim_item
 				end,
-				-- format = lspkind.cmp_format({
-				--         maxwidth = 30,
-				--         ellipsis_char = "...",
-				--         before = require("tailwindcss-colorizer-cmp").formatter
-				-- }),
-				-- format = require("tailwindcss-colorizer-cmp").formatter
+				format = lspkind.cmp_format({
+					maxwidth = 30,
+					ellipsis_char = "...",
+					before = require("tailwindcss-colorizer-cmp").formatter,
+				}),
+				format = require("tailwindcss-colorizer-cmp").formatter,
 			},
 		})
 
