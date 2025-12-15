@@ -6,7 +6,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- File navigation
-vim.keymap.set("n", "<leader>pv", "<cmd>:Explore<CR>", { desc = "open file explorer (netrw)" })
+vim.keymap.set("n", "<leader>pv", "<cmd>:Oil<CR>", { desc = "open file explorer (netrw)" })
+vim.keymap.set("n", "-", "<cmd>:Oil<CR>", { desc = "open file explorer (netrw)" })
 vim.keymap.set("n", "<leader>vs", "<cmd>:vsplit<CR>zz", { desc = "split window vertically and center" })
 
 -- Visual mode line movement
@@ -101,6 +102,7 @@ vim.keymap.set("t", "<C-w>k", "<C-\\><C-n><C-w>k", { desc = "leave term mode and
 vim.keymap.set("t", "<C-w>j", "<C-\\><C-n><C-w>j", { desc = "leave term mode and go to win down", silent = true })
 vim.keymap.set("t", "<C-w>m", "<C-\\><C-n><C-w>_", { desc = "maximize current split" })
 vim.keymap.set("t", "<C-w>e", "<C-\\><C-n><C-w>=", { desc = "equalize all splits" })
+vim.keymap.set("t", "<C-w>o", "<C-\\><C-n><cmd>tabnew<CR>", { desc = "open new tab from term mode" })
 
 -- Clear whitespace on save
 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -109,13 +111,12 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 -- Tab management
-vim.keymap.set("n", "<C-w>o", "<cmd>tabnew<CR>", { desc = "open new tab" })
-vim.keymap.set("n", "<C-w>]", "<cmd>tabn<CR>", { desc = "next tab" })
-vim.keymap.set("n", "<C-w>[", "<cmd>tabp<CR>", { desc = "previous tab" })
-vim.keymap.set("t", "<C-w>]", "<C-\\><C-n><cmd>tabn<CR>", { desc = "next tab" })
-vim.keymap.set("t", "<C-w>[", "<C-\\><C-n><cmd>tabp<CR>", { desc = "previous tab" })
-vim.keymap.set("n", "<C-w>'", "<cmd>tabnew %<CR>", { desc = "open current file in new tab" })
-vim.keymap.set("n", "<C-w>;", "<cmd>tabnew <cfile><CR>", { desc = "open file under cursor in new tab" })
+-- vim.keymap.set("n", "<C-w>o", "<cmd>tabnew<CR>", { desc = "open new tab" })
+vim.keymap.set("n", "<C-w>o", "<cmd>tabnew %<CR>", { desc = "open current file in new tab" })
+vim.keymap.set("n", "<C-.>", "<cmd>tabn<CR>", { desc = "next tab" })
+vim.keymap.set("n", "<C-,>", "<cmd>tabp<CR>", { desc = "previous tab" })
+vim.keymap.set("t", "<C-.>", "<C-\\><C-n><cmd>tabn<CR>", { desc = "next tab" })
+vim.keymap.set("t", "<C-,>", "<C-\\><C-n><cmd>tabp<CR>", { desc = "previous tab" })
 
 -- Split window management
 vim.keymap.set("n", "<C-->", "<C-w>-", { desc = "decrease split size" })
@@ -130,13 +131,6 @@ vim.keymap.set("n", "<leader>fp", function()
 	print("File path copied to clipboard: " .. filePath)
 end, { desc = "copy current file path to clipboard" })
 
--- Copy current file's directory to clipboard
-vim.keymap.set("n", "<leader>fd", function()
-	local dirPath = vim.fn.expand("%:p:h") -- absolute directory path
-	dirPath = vim.fn.fnamemodify(dirPath, ":~") -- convert to ~/ if possible
-	vim.fn.setreg("+", dirPath)
-	print("Directory path copied to clipboard: " .. dirPath)
-end, { desc = "copy current file directory to clipboard" })
-
--- Open nvim config
-vim.keymap.set("n", "<leader>nc", "<cmd>tabnew<CR><cmd>:Explore ~/.config/nvim<CR>", { desc = "open nvim config dir" })
+-- Bcra aivz pbasvt
+-- vim.keymap.set("n", "<leader>nc", "<cmd>tabnew<CR><cmd>:Explore ~/.config/nvim<CR>", { desc = "open nvim config dir" })
+vim.keymap.set("n", "<leader>nc", "<cmd>tabnew<CR><cmd>:Oil ~/.config/nvim<CR>", { desc = "open nvim config dir" })
