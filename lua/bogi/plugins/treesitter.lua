@@ -1,7 +1,8 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		event = { "BufReadPre", "BufNewFile" },
+		-- event = { "BufReadPre", "BufNewFile" },
+		lazy = false,
 		build = ":TSUpdate",
 		config = function()
 			local treesitter = require("nvim-treesitter.configs")
@@ -32,15 +33,17 @@ return {
 					"query",
 					"vimdoc",
 					"c",
-					"java",
 					"rust",
-					"ron",
+					"proto",
+					"cue",
+					"helm",
 				},
 				incremental_selection = {
 					enable = true,
 					keymaps = {
-						init_selection = "<C-space>",
-						node_incremental = "<C-space>",
+						init_selection = "<C-a>",
+						node_incremental = "<C-a>",
+						node_decremental = "<C-n>",
 						scope_incremental = false,
 					},
 				},

@@ -1,0 +1,29 @@
+return {
+	-- "folke/which-key.nvim",
+	-- event = "VeryLazy",
+	-- opts = {
+	-- },
+	-- keys = {
+	-- 	{
+	-- 		"<leader>w",
+	-- 		function()
+	-- 			require("which-key").show({ global = false })
+	-- 		end,
+	-- 		desc = "buffer local keymaps (which-key)",
+	-- 	},
+	-- 	{
+	-- 		"<C-t>w",
+	-- 		function()
+	-- 			require("which-key").show({ global = false })
+	-- 		end,
+	-- 		desc = "buffer local keymaps (which-key)",
+	-- 	},
+	-- 	{
+	-- 		"<C-w>w",
+	-- 		function()
+	-- 			require("which-key").show({ global = false })
+	-- 		end,
+	-- 		desc = "buffer local keymaps (which-key)",
+	-- 	},
+	-- },
+}
