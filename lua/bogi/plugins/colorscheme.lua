@@ -1,11 +1,7 @@
 return {
 	"thimc/gruber-darker.nvim",
 	config = function()
-		require("gruber-darker").setup({
-			-- transparent = false,
-			-- underline = false,
-			-- bold = false,
-		})
+		require("gruber-darker").setup({})
 		vim.cmd.colorscheme("gruber-darker")
 	end,
 }

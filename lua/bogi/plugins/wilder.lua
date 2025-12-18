@@ -25,15 +25,14 @@ return {
 					default = wilder.make_hl(
 						"WilderPopupMenu",
 						"Pmenu",
-						{ { a = 1 }, { a = 1 }, { background = "#1E212B" } }
+						{ { a = 1 }, { a = 1 }, { background = "#181818" } }
 					),
 					accent = wilder.make_hl(
 						"WilderAccent",
 						"Pmenu",
-						{ { a = 1 }, { a = 1 }, { foreground = "#58FFD6", background = "#1e1e2e" } }
+						{ { a = 1 }, { a = 1 }, { foreground = "#f43841", background = "#181818" } }
 					),
 				},
-				border = "single",
 			}))
 		)
 	end,

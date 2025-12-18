@@ -25,17 +25,20 @@ return {
 						buffer = ev.buf,
 						silent = true,
 					})
-					vim.keymap.set("n", "K", vim.lsp.buf.hover, {
+					vim.keymap.set("n", "K", function()
+						vim.lsp.buf.hover({ border = "single" })
+					end, {
 						desc = "lsp hover",
 						buffer = ev.buf,
 						silent = true,
 					})
-					vim.keymap.set(
-						"n",
-						"<leader>f",
-						vim.lsp.buf.format,
-						{ desc = "format buffer with LSP", buffer = ev.buf, silent = true }
-					)
+
+					-- vim.keymap.set(
+					-- 	"n",
+					-- 	"<leader>f",
+					-- 	vim.lsp.buf.format,
+					-- 	{ desc = "format buffer with LSP", buffer = ev.buf, silent = true }
+					-- )
 					vim.keymap.set("i", "<C-h>", function()
 						vim.lsp.buf.signature_help()
 					end)

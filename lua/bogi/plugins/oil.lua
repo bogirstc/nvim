@@ -1,8 +1,6 @@
 return {
 	{
 		"stevearc/oil.nvim",
-		---@module 'oil'
-		---@type oil.SetupOpts
 		opts = {},
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		lazy = false,
@@ -77,37 +75,6 @@ return {
 					disable_preview = function(filename)
 						return false
 					end,
-				},
-				confirmation = {
-					max_width = 0.9,
-					min_width = { 40, 0.4 },
-					width = nil,
-					max_height = 0.9,
-					min_height = { 5, 0.1 },
-					height = nil,
-					border = nil,
-					win_options = {
-						winblend = 0,
-					},
-				},
-				progress = {
-					max_width = 0.9,
-					min_width = { 40, 0.4 },
-					width = nil,
-					max_height = { 10, 0.9 },
-					min_height = { 5, 0.1 },
-					height = nil,
-					border = nil,
-					minimized_border = "none",
-					win_options = {
-						winblend = 0,
-					},
-				},
-				ssh = {
-					border = nil,
-				},
-				keymaps_help = {
-					border = nil,
 				},
 			})
 		end,
