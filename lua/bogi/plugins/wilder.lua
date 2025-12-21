@@ -16,6 +16,8 @@ return {
 			wilder.popupmenu_renderer(wilder.popupmenu_border_theme({
 				min_width = "20%",
 				max_height = "20%",
+				pumblend = 20,
+
 				reverse = 0,
 				highlighter = {
 					wilder.lua_pcre2_highlighter(),

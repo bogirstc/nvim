@@ -16,45 +16,48 @@ return {
 			appearance = {
 				nerd_font_variant = "mono",
 			},
+			fuzzy = {
+				implementation = "prefer_rust_with_warning",
+			},
 			completion = {
 				trigger = {
-					show_on_backspace = true,
+					show_on_backspace = false,
 				},
 				documentation = {
 					auto_show = true,
 					auto_show_delay_ms = 0,
 					update_delay_ms = 50,
-					treesitter_highlighting = true, -- disable if issues with performance exist
-					draw = function(opts)
-						opts.default_implementation()
-					end,
 					window = {
 						border = "single",
-						winblend = 0,
 					},
 				},
-				accept = { auto_brackets = { enabled = false } },
+				accept = {
+					auto_brackets = {
+						enabled = false,
+					},
+					dot_repeat = false,
+				},
 				menu = {
 					enabled = true,
 					auto_show = true,
 					draw = {
-						columns = { { "kind_icon" }, { "label", "label_description", gap = 1 } },
-						align_to = "label",
 						treesitter = { "lsp" },
-						border = "single",
 					},
-					window = {
-						border = "single",
-					},
-					ghost_tex = { enabled = true },
+					border = "single",
+					min_width = 30,
+					max_height = 15,
+					scrollbar = true,
 				},
 			},
-
+			list = {
+				selection = {
+					preselect = false,
+					auto_insert = false,
+				},
+			},
 			sources = {
 				default = { "lsp", "path", "snippets", "buffer" },
 			},
-
-			fuzzy = { implementation = "prefer_rust_with_warning" },
 		},
 		opts_extend = { "sources.default" },
 	},
