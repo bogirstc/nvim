@@ -1,1 +1,2 @@
-require("bogi")
+require("bogi.core")
+require("bogi.lazy")
