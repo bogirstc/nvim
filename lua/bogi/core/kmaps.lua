@@ -49,18 +49,18 @@ vim.keymap.set(
 	{ desc = "replace word under cursor in selection" }
 )
 
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { desc = "make file executable", silent = true })
+vim.keymap.set("n", "<leader>cx", "<cmd>!chmod +x %<CR>", { desc = "make file executable", silent = true })
 
-vim.keymap.set("n", "<C-w>o", "<cmd>tabnew %<CR>", { desc = "open current file in new tab" })
-vim.keymap.set("n", "<C-w>;", "<cmd>tabn<CR>", { desc = "next tab" })
-vim.keymap.set("n", "<C-w>'", "<cmd>tabp<CR>", { desc = "previous tab" })
-vim.keymap.set("t", "<C-w>;", "<C-\\><C-n><cmd>tabn<CR>", { desc = "next tab" })
-vim.keymap.set("t", "<C-w>'", "<C-\\><C-n><cmd>tabp<CR>", { desc = "previous tab" })
+vim.keymap.set("n", "<leader>nto", "<cmd>tabnew<CR>", { desc = "open new tab" })
+vim.keymap.set("n", "<leader>to", "<cmd>tabnew %<CR>", { desc = "open current file in new tab" })
+vim.keymap.set("n", "<leader>l", "<cmd>tabn<CR>", { desc = "next tab" })
+vim.keymap.set("n", "<leader>h", "<cmd>tabp<CR>", { desc = "previous tab" })
+vim.keymap.set("n", "<leader>q", "<cmd>tabclose<CR>", { desc = "close tab" })
 
 vim.keymap.set("n", "<C-->", "<C-w>-", { desc = "decrease split size" })
 vim.keymap.set("n", "<C-=>", "<C-w>+", { desc = "increase split size" })
-vim.keymap.set("n", "<C-w>m", "<C-w>_", { desc = "maximize current split" })
-vim.keymap.set("n", "<C-w>e", "<C-w>=", { desc = "equalize all splits" })
+vim.keymap.set("n", "<leader>m", "<C-w>_", { desc = "maximize current split" })
+vim.keymap.set("n", "<leader>e", "<C-w>=", { desc = "equalize all splits" })
 
 vim.keymap.set("n", "<C-,>", "<cmd>:cnext<CR>", { desc = "quickfix next" })
 vim.keymap.set("n", "<C-.>", "<cmd>:cprev<CR>", { desc = "quickfix previous" })
@@ -77,12 +77,11 @@ vim.keymap.set("n", "<C-t><C-t>", function()
 	vim.cmd.wincmd("J")
 	vim.api.nvim_win_set_height(0, 10)
 end, { desc = "open a new terminal" })
-vim.keymap.set("t", "<C-w><C-c>", "<C-\\><C-n>", { desc = "leave term mode", silent = true })
-vim.keymap.set("t", "<C-w>k", "<C-\\><C-n><C-w>k", { desc = "leave term mode and go to win up", silent = true })
-vim.keymap.set("t", "<C-w>j", "<C-\\><C-n><C-w>j", { desc = "leave term mode and go to win down", silent = true })
-vim.keymap.set("t", "<C-w>m", "<C-\\><C-n><C-w>_", { desc = "maximize current split" })
-vim.keymap.set("t", "<C-w>e", "<C-\\><C-n><C-w>=", { desc = "equalize all splits" })
-vim.keymap.set("t", "<C-w>o", "<C-\\><C-n><cmd>tabnew<CR>", { desc = "open new tab from term mode" })
+vim.keymap.set("t", "<C-q>", "<C-\\><C-n>", { desc = "leave term mode", silent = true })
+vim.keymap.set("t", "<leader>m", "<C-\\><C-n><C-w>_", { desc = "maximize current split" })
+vim.keymap.set("t", "<leader>e", "<C-\\><C-n><C-w>=", { desc = "equalize all splits" })
+vim.keymap.set("t", "<leader>nto", "<C-\\><C-n><cmd>tabnew<CR>", { desc = "open new tab from term mode" })
+vim.keymap.set("t", "<leader>to", "<C-\\><C-n><cmd>tabnew %<CR>", { desc = "open new tab from term mode" })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "highlight yanked text",
