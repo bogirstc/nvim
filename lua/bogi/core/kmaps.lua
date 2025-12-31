@@ -28,6 +28,7 @@ vim.keymap.set("v", ">", ">gv", opts)
 vim.keymap.set("i", "<C-c>", "<Esc>", { desc = "exit insert mode" })
 vim.keymap.set("n", "<C-c>", ":nohl<CR>", { desc = "clear search highlights" })
 vim.keymap.set("n", "Q", "<nop>", { desc = "disable exit mode" })
+vim.keymap.set("n", "<C-q>", "<nop>", { desc = "disable visual block mode" })
 
 vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", {
 	desc = "restart lsp",
@@ -51,19 +52,19 @@ vim.keymap.set(
 
 vim.keymap.set("n", "<leader>cx", "<cmd>!chmod +x %<CR>", { desc = "make file executable", silent = true })
 
-vim.keymap.set("n", "<leader>nto", "<cmd>tabnew<CR>", { desc = "open new tab" })
-vim.keymap.set("n", "<leader>to", "<cmd>tabnew %<CR>", { desc = "open current file in new tab" })
+vim.keymap.set("n", "<leader>t", "<cmd>tabnew %<CR>", { desc = "open current file in new tab" })
 vim.keymap.set("n", "<leader>l", "<cmd>tabn<CR>", { desc = "next tab" })
 vim.keymap.set("n", "<leader>h", "<cmd>tabp<CR>", { desc = "previous tab" })
 vim.keymap.set("n", "<leader>q", "<cmd>tabclose<CR>", { desc = "close tab" })
-
-vim.keymap.set("n", "<C-->", "<C-w>-", { desc = "decrease split size" })
-vim.keymap.set("n", "<C-=>", "<C-w>+", { desc = "increase split size" })
 vim.keymap.set("n", "<leader>m", "<C-w>_", { desc = "maximize current split" })
 vim.keymap.set("n", "<leader>e", "<C-w>=", { desc = "equalize all splits" })
 
-vim.keymap.set("n", "<C-,>", "<cmd>:cnext<CR>", { desc = "quickfix next" })
-vim.keymap.set("n", "<C-.>", "<cmd>:cprev<CR>", { desc = "quickfix previous" })
+vim.keymap.set("t", "<C-q>", "<C-\\><C-n>", { desc = "leave term mode", silent = true })
+vim.keymap.set("n", "<C-->", "<C-w>-", { desc = "decrease split size" })
+vim.keymap.set("n", "<C-=>", "<C-w>+", { desc = "increase split size" })
+
+vim.keymap.set("n", "<C-.>", "<cmd>:cnext<CR>", { desc = "quickfix next" })
+vim.keymap.set("n", "<C-,>", "<cmd>:cprev<CR>", { desc = "quickfix previous" })
 
 vim.keymap.set(
 	"t",
@@ -77,11 +78,6 @@ vim.keymap.set("n", "<C-t><C-t>", function()
 	vim.cmd.wincmd("J")
 	vim.api.nvim_win_set_height(0, 10)
 end, { desc = "open a new terminal" })
-vim.keymap.set("t", "<C-q>", "<C-\\><C-n>", { desc = "leave term mode", silent = true })
-vim.keymap.set("t", "<leader>m", "<C-\\><C-n><C-w>_", { desc = "maximize current split" })
-vim.keymap.set("t", "<leader>e", "<C-\\><C-n><C-w>=", { desc = "equalize all splits" })
-vim.keymap.set("t", "<leader>nto", "<C-\\><C-n><cmd>tabnew<CR>", { desc = "open new tab from term mode" })
-vim.keymap.set("t", "<leader>to", "<C-\\><C-n><cmd>tabnew %<CR>", { desc = "open new tab from term mode" })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "highlight yanked text",
