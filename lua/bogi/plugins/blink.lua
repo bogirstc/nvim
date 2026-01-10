@@ -1,7 +1,7 @@
 return {
 	{
 		"saghen/blink.cmp",
-		dependencies = { "rafamadriz/friendly-snippets" },
+		dependencies = { "rafamadriz/friendly-snippets", "hrsh7th/nvim-cmp" },
 		version = "1.*",
 		opts = {
 			keymap = {
@@ -44,7 +44,7 @@ return {
 						treesitter = { "lsp" },
 					},
 					border = "single",
-					min_width = 30,
+					min_width = 60,
 					max_height = 15,
 					scrollbar = true,
 				},

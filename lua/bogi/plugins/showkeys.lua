@@ -4,7 +4,7 @@ return {
 		event = "VeryLazy",
 		opts = {
 			position = "bottom-right",
-			maxkeys = 6,
+			maxkeys = 12,
 			show_count = true,
 			winopts = {
 				focusable = false,
